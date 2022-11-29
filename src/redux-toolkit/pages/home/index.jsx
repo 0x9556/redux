@@ -14,6 +14,7 @@ const Home = memo(() => {
 
     dispatch(getData())
 
+
   }, [])
 
 

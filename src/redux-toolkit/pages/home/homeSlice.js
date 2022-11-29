@@ -1,7 +1,4 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import axios from 'axios'
-
-
 
 const initialState = {
     isLoading: true,
@@ -11,13 +8,11 @@ const initialState = {
 export const getData = createAsyncThunk(
     "home/getData",
     async () => {
-        const response = await axios.get("https://course-api.com/react-useReducer-cart-project")
-
-        return response.data
+        const response = await fetch("https://course-api.com/react-useReducer-cart-project")
+        const data = await response.json()
+        return data
     }
 )
-
-
 
 const homeSlice = createSlice({
     name: "home",
